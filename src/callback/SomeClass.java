@@ -5,15 +5,15 @@ import javax.swing.*;
 /**
  * Created by User on 20.11.2016.
  */
-public class SomeClass {
+class SomeClass {
 
     interface Callback {
         void callingBack();
     }
 
-    Callback callback;
+    private Callback callback;
 
-    public void registerCallBack(Callback callback) {
+    void registerCallBack(Callback callback) {
         this.callback = callback;
     }
 
