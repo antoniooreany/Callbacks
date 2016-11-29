@@ -7,8 +7,10 @@ import javax.swing.*;
  */
 class SomeClass {
 
+    private String replyTo;
+
     interface Callback {
-        void callingBack();
+        void callingBack(String s);
     }
 
     private Callback callback;
@@ -18,9 +20,16 @@ class SomeClass {
     }
 
     void doSomething() {
-        JOptionPane.showMessageDialog(null, "Work is performed");
+        int reply = JOptionPane.showConfirmDialog(null, "Are you programmer?", "Interview", JOptionPane.YES_NO_OPTION);
 
-        callback.callingBack();
+        if (reply == JOptionPane.YES_OPTION) {
+            replyTo = "Yes";
+        }
+        if (reply == JOptionPane.NO_OPTION) {
+            replyTo = "No";
+        }
+
+        callback.callingBack(replyTo);
     }
 
 }
